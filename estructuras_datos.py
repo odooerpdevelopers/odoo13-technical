@@ -60,7 +60,7 @@ res = {
     'warning': "Mensaje de alerta",
     'values': {
         "id": 158,
-        "name": "XXFGTX NAME",
+        'name': 'XXFGTX NAME',
         "price": 1245.58,
         "taxes": {
             "vat_1": 0.21,
