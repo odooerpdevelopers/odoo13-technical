@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form  -->
+        <record id="vehicle_form_view" model="ir.ui.view">
+            <field name="name">vehicle.form.view</field>
+            <field name="model">taller.vehiculo</field>
+            <field name="arch" type="xml">
+                <form string="Vehiculo Form">
+                    <sheet>
+                        <group>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="matricula"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree -->
+        <record id="vehicle_tree_view" model="ir.ui.view">
+            <field name="name">vehicle.tree.view</field>
+            <field name="model">taller.vehiculo</field>
+            <field name="arch" type="xml">
+                <tree string="Vehiculo Tree">
+                    <field name="active"/>
+                    <field name="name"/>
+                    <field name="matricula"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Accion -->
+        <record id="action_vehicle_view" model="ir.actions.act_window">
+            <field name="name">Vehiculos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">taller.vehiculo</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Menus-->
+        <menuitem id="menu_taller_root"
+                  name="Taller"
+                  web_icon="taller,static/description/icon.png"
+                  sequence="1"/>
+
+        <menuitem id="action_menuitem_taller"
+                  parent="menu_taller_root"
+                  action="action_vehicle_view"
+                  name="Vehiculos"
+                  sequence="1"/>
+    </data>
+</odoo>
