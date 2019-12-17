@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_taller_vehiculo_all,access_taller_vehiculo,model_taller_vehiculo,base.group_user,1,0,0,0
 access_taller_vehiculo_managers,access_taller_vehiculo_manager,model_taller_vehiculo,base.group_erp_manager,1,1,1,1
+access_taller_orden_reparacion_managers,access_taller_ordern_reparacion_manager,model_taller_orden_reparacion,base.group_erp_manager,1,1,1,1
+access_taller_orden_reparacion_line_managers,access_taller_ordern_reparacion_line_manager,model_taller_orden_reparacion_line,base.group_erp_manager,1,1,1,1

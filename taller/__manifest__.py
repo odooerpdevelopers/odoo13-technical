@@ -20,7 +20,9 @@
 
     # always loaded
     'data': [
+        "data/data.xml",
         "security/ir.model.access.csv",
         "views/vehiculo_view.xml",
+        "views/order_reparacion_view.xml",
     ],
 }
