@@ -11,7 +11,7 @@
                         <group>
                             <h2>
 
-                                <field name="name"/>
+                                <field name="name" readonly="1"/>
                             </h2>
                         </group>
                         <group>
@@ -24,13 +24,17 @@
                         <notebook>
                         <page string="Order Lines" name="reparacion_line_ids">
                             <field name="reparacion_line_ids">
-                                <tree>
+                                <tree editable="bottom">
                                     <field name="name"/>
                                     <field name="vehiculo_id"/>
                                 </tree>
                             </field>
                         </page>
                         </notebook>
+
+                        <group>
+                            <field name="notas" nolabel="1" placeholder="Notas..."/>
+                        </group>
                     </sheet>
                 </form>
             </field>

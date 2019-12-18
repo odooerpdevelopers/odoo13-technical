@@ -21,6 +21,8 @@ class OrderReparacion(models.Model):
         string="lineas Reparacion"
     )
 
+    notas = fields.Html(string="Notas")
+
     @api.model
     def create(self, vals):
         new_seq_name = self.env['ir.sequence'].next_by_code(
