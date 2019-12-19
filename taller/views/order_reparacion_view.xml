@@ -7,6 +7,15 @@
             <field name="model">taller.orden.reparacion</field>
             <field name="arch" type="xml">
                 <form string="Vehiculo Form">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="nuevo,confirmado,realizado"/>
+                        <button name="confirm" string="Confirmar" type="object"
+                                attrs="{
+                                'invisible': [('state', '=', 'confirmado')],
+                                'readonly': [('state', '=', 'confirmado')],
+                                }"/>
+                        <button name="cancel" string="Cancelar" type="object"/>
+                    </header>
                     <sheet>
                         <group>
                             <h2>
@@ -19,17 +28,18 @@
                         </group>
                         <group>
                             <field name="partner_id"/>
+                            <field name="company_id"/>
                         </group>
 
                         <notebook>
-                        <page string="Order Lines" name="reparacion_line_ids">
-                            <field name="reparacion_line_ids">
-                                <tree editable="bottom">
-                                    <field name="name"/>
-                                    <field name="vehiculo_id"/>
-                                </tree>
-                            </field>
-                        </page>
+                            <page string="Order Lines" name="reparacion_line_ids">
+                                <field name="reparacion_line_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="vehiculo_id"/>
+                                    </tree>
+                                </field>
+                            </page>
                         </notebook>
 
                         <group>

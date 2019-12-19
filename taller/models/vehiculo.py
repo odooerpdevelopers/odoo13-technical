@@ -18,6 +18,10 @@ class Vehicle(models.Model):
          'Nombre tiene que ser unico.')
     ]
 
+    tag_ids = fields.Many2many(
+        comodel_name="vehiculo.tag"
+    )
+
     @api.constrains('matricula')
     def _check_matricula(self):
         # comoprobamos que sea unica
@@ -28,3 +32,9 @@ class Vehicle(models.Model):
         vehiculos = self.search(domain)
         if vehiculos:
             raise exceptions.ValidationError("Matricula duplicada")
+
+
+class VehiculoTag(models.Model):
+    _name = "vehiculo.tag"
+
+    name = fields.Char(string="Name")
