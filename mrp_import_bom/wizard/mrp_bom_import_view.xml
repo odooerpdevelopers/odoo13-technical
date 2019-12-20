@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="bom_import_wizard_form" model="ir.ui.view">
+            <field name="name">bom import wizard form</field>
+            <field name="model">import.bom.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Import Bom materials">
+                    <group>
+                        <field name="product_id"/>
+                        <field name="file_data"/>
+                    </group>
+
+                    <footer>
+                        <button name="import_bom" type="object" string="Importar" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <act_window
+            id="action_bom_import"
+            name="Importar Lista materiales"
+            res_model="import.bom.wizard"
+            binding_model="product.template"
+            binding_views="form"
+            view_mode="form"
+            target="new"
+            groups="base.group_user" />
+    </data>
+</odoo>
