@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="report_layout_oec_t1" model="report.layout">
+            <field name="name">OEC Custom</field>
+            <field name="view_id" ref="oec_reports.external_layout_oec_t1"/>
+            <field name="pdf">/oec_reports/static/pdf/demo_presup.pdf</field>
+            <field name="image">/oec_reports/static/img/demo_presup.png</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+        <template id="external_layout_oec_t1">
+            <div class="header">
+                <style>
+                    .company_brand_color {
+                    color: #e5007e !important;
+                    }
+
+                    body{
+                    font-family: Helvetica,Arial,Verdana,sans-serif;
+                    //font-size: 9px;
+                    //font-size: 8px;
+                    font-size: 14px;
+                    }
+
+                </style>
+                <div>
+
+                    <div class="text-center">
+                        <t t-set="logo_width" t-value="company.report_logo_width + 'px;'"/>
+                        <img t-if="company.report_logo"
+                             t-att-style="'width:' + logo_width"
+                             t-att-src="image_data_uri(company.report_logo)"
+                             alt="Logo"/>
+                        <img t-if="not company.report_logo"
+                             t-att-style="'width:' + logo_width"
+                             src="/oec_reports/static/img/logo_report.png"
+                             alt="Logo"/>
+                    </div>
+                    <div class="clearfix mb8"/>
+                </div>
+            </div>
+
+            <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+                <t t-raw="0"/>
+            </div>
+
+            <div class="footer">
+                <style>
+                    .company_footer_box{
+                    height: 60px !important;
+                    background-color: #e5007e;
+                    color: white;
+                    font-size: 14px;
+                    }
+                </style>
+                <div class="text-center company_footer_box">
+                    <ul class="list-inline">
+                        <li t-if="company.phone" class="list-inline-item">
+                            <i class="fa fa-phone" role="img" aria-label="Phone" title="Phone"/>
+                            <span t-field="company.phone"/>
+                        </li>
+                        <li t-if="company.email" class="list-inline-item">
+                            <i class="fa fa-at" role="img" aria-label="Email" title="Email"/>
+                            <span t-field="company.email"/>
+                        </li>
+                        <li t-if="company.website" class="list-inline-item">
+                            <i class="fa fa-globe" role="img" aria-label="Website" title="Website"/>
+                            <span t-field="company.website"/>
+                        </li>
+                        <li t-if="company.vat" class="list-inline-item">
+                            <i class="fa fa-building-o" role="img" aria-label="Fiscal number"/>
+                            <t t-esc="company.country_id.vat_label or 'Tax ID'"/>:
+                            <span t-field="company.vat"/>
+                        </li>
+                    </ul>
+                    <div t-if="report_type == 'pdf'" class="text-white">
+                        Page:
+                        <span class="page"/>
+                        of
+                        <span class="topage"/>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </data>
+</odoo>
