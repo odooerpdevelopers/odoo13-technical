@@ -13,7 +13,7 @@ class OrderReparacion(models.Model):
         ('realizado', 'Realizado'),
         ('cancelado', 'Cancelado')
     ], string='Estado', readonly=True, index=True, copy=False,
-        default='draft', tracking=True)
+        default='nuevo', tracking=True)
 
     active = fields.Boolean(string="Active", default=True)
     name = fields.Char(
